@@ -32,8 +32,8 @@ const EditImage = () => {
         setGeneratingImg(true)
         setGeneratingImageComplete(false)
         try {
-            // const response = await fetch('https://imagewizard.onrender.com/api/v1/upload',
-            const response = await fetch('http://localhost:8080/api/v1/upload',
+            const response = await fetch('https://imagewizard.onrender.com/api/v1/upload',
+            // const response = await fetch('http://localhost:8080/api/v1/upload',
                 {
                     method: 'POST',
                     body: data
