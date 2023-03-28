@@ -17,6 +17,8 @@ cloudinary.config({
 
 router.route('/').get(async (req, res) => {
     try {
+        // mongoose
+        // access all posts through Post model by passing empty object into find()
         const posts = await Post.find({});
         res.status(200).json({ success: true, data: posts });
         console.log(posts);
@@ -39,7 +41,7 @@ router.route('/').post(async (req, res) => {
         });
 
         res.status(200).json({ success: true, data: newPost });
-        console.log(photoUrl);
+        
     } catch (err) {
         
         res.status(500).json({ success: false, message: 'Unable to create a post, please try again' });

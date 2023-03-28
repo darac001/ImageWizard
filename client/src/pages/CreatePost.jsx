@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { preview } from '../assets';
 import { getRandomPrompt } from '../utils';
-import { FormField, Loader } from '../components';
+import {  Loader } from '../components';
 
 const CreatePost = () => {
   const navigate = useNavigate();
@@ -62,7 +62,9 @@ const CreatePost = () => {
             body: JSON.stringify({ prompt: form.prompt })
           })
         const data = await response.json();
+        // console.log(data);
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
+        
       } catch (error) {
         alert(error)
       } finally {
@@ -78,16 +80,16 @@ const CreatePost = () => {
 
     <section className="max-w-7xl mx-auto">
       <div>
-        <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
-        <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">Generate an imaginative image through DALL-E AI and share it with the community</p>
+        <h1 className="font-dm font-medium text-white text-[32px]">Create</h1>
+        <p className="mt-2 font-dm text-slate-300 text-[14px] w-full ">I asked my computer to generate some images, but all it came up with were pixelated dreams.</p>
       </div>
 
       <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-5">
-          <div className="flex items-center gap-2 mb-2">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-2">
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-900"
+              className="block font-dm text-sm text-slate-300"
             >
               Your Name
             </label>
@@ -96,24 +98,27 @@ const CreatePost = () => {
             type="text"
             id="name"
             name="name"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#6469ff] focus:border-[#6469ff] outline-none block w-full p-3"
+            className="border bg-transparent placeholder:text-slate-500
+             border-slate-800 text-white text-sm rounded-lg
+              focus:ring-[#6469ff] focus:border-[#6469ff]
+               outline-none block max-w-full w-4/5 p-3"
             placeholder="Ex., john doe"
             value={form.name}
             onChange={handleChange}
             required
           />
 
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2 mt-7">
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-900"
+              className="block font-dm text-sm text-slate-300"
             >
               Prompt
             </label>
             <button
               type="button"
               onClick={handleSurpriseMe}
-              className="font-semibold text-xs bg-[#EcECF1] py-1 px-2 rounded-[5px] text-black"
+              className="font-dm text-xs bg-[#6469ff] py-1.5 px-3 rounded-full text-white"
             >
               Surprise me
             </button>
@@ -122,25 +127,28 @@ const CreatePost = () => {
             type="text"
             id="name"
             name="prompt"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#6469ff] focus:border-[#6469ff] outline-none block w-full p-3"
+            className="border bg-transparent placeholder:text-slate-500
+             border-slate-800 text-white text-sm rounded-lg
+              focus:ring-[#6469ff] focus:border-[#6469ff]
+               outline-none block max-w-full w-4/5 p-3"
             placeholder="A giant ant with sunglasses riding a small bicycle"
             value={form.prompt}
             onChange={handleChange}
             required
           />
 
-          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
+          <div className="relative text-gray-900 mt-5 text-sm rounded-lg border border-slate-800 w-96 h-96 max-w-full max-h-full flex justify-center items-center">
             {form.photo ? (
               <img
                 src={form.photo}
                 alt={form.prompt}
-                className="w-full h-full object-contain"
+                
               />
             ) : (
               <img
                 src={preview}
                 alt="preview"
-                className="w-9/12 h-9/12 object-contain opacity-40"
+                className=" bg-slate-500 w-7/12 object-contain opacity-90 "
               />
             )}
 
@@ -155,17 +163,19 @@ const CreatePost = () => {
           <button
             type="button"
             onClick={generateImage}
-            className=" text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            className=" font-dm px-4 py-2 flex justify-center 
+            items-center font-medium ease-in-out duration-500 hover:bg-slate-800/50 text-white bg-slate-800 rounded-full"
           >
             {generatingImg ? 'Generating...' : 'Generate'}
           </button>
         </div>
 
         <div className="mt-10">
-          <p className="mt-2 text-[#666e75] text-[14px]">** Once you have created the image you want, you can share it with others in the community **</p>
+          <p className="mt-2 text-[#666e75] text-[14px]">** Share your creation on the homepage **</p>
           <button
             type="submit"
-            className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            className="font-dm px-4 py-2 flex justify-center 
+            items-center font-medium ease-in-out duration-500 hover:bg-slate-800/50 text-white bg-slate-800 rounded-full"
           >
             {loading ? 'Sharing...' : 'Share with the Community'}
           </button>

@@ -4,6 +4,26 @@ import cors from 'cors';
 import connectDB from './mongodb/connect.js';
 import postRoutes from './routes/postRoutes.js';
 import dalleRoutes from './routes/dalleRoutes.js';
+import dalleEditRoutes from './routes/dalleEditRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
+
+import { Configuration, OpenAIApi } from "openai"
+import sharp from 'sharp';
+
+
+const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
+
+
+// // file upload route
+// // ****************
+// import multer from 'multer';
+// const upload = multer({ dest: 'uploads/' })
+
+
 
 dotenv.config();
 
@@ -12,6 +32,11 @@ app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use('/api/v1/post', postRoutes);
 app.use('/api/v1/dalle', dalleRoutes);
+app.use('/api/v1/upload', uploadRoutes);
+
+
+
+
 
 
 
@@ -21,6 +46,18 @@ app.get('/', async (req, res) => {
     });
 });
 
+
+
+// // file upload/edit route
+// // ****************
+// app.post('/upload', upload.single('file'), function (req, res) {
+//     // console.log(req.body);
+//     // console.log(req.file);
+//   })
+
+
+
+// mongo   
 
 const startServer = async () => {
     try {
