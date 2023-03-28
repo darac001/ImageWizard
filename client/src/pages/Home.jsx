@@ -52,7 +52,7 @@ const Home = () => {
 
 
   return (
-    <section className="max-w-7xl mx-auto">
+    <section className="max-w-7xl mx-auto sm:p-0 p-4">
       <div className='flex sm:flex-row flex-col justify-between items-center text-center '>
         <div>
           <h1 className="font-dm text-[#fff] text-medium text-[36px]">Community Showcase</h1>

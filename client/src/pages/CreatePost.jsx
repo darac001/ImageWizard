@@ -78,7 +78,7 @@ const CreatePost = () => {
 
   return (
 
-    <section className="max-w-7xl mx-auto">
+    <section className="max-w-7xl mx-auto sm:p-0 p-4">
       <div>
         <h1 className="font-dm font-medium text-white text-[32px]">Create</h1>
         <p className="mt-2 font-dm text-slate-300 text-[14px] w-full ">I asked my computer to generate some images, but all it came up with were pixelated dreams.</p>
@@ -102,7 +102,7 @@ const CreatePost = () => {
              border-slate-800 text-white text-sm rounded-lg
               focus:ring-[#6469ff] focus:border-[#6469ff]
                outline-none block max-w-full w-4/5 p-3"
-            placeholder="Ex., john doe"
+            placeholder="Ex., john/jane"
             value={form.name}
             onChange={handleChange}
             required
@@ -131,13 +131,13 @@ const CreatePost = () => {
              border-slate-800 text-white text-sm rounded-lg
               focus:ring-[#6469ff] focus:border-[#6469ff]
                outline-none block max-w-full w-4/5 p-3"
-            placeholder="A giant ant with sunglasses riding a small bicycle"
+            placeholder="tyriel archangel, king shamn , avatar , swords , angel wings . 4k , unreal engine --wallpaper"
             value={form.prompt}
             onChange={handleChange}
             required
           />
 
-          <div className="relative text-gray-900 mt-5 text-sm rounded-lg border border-slate-800 w-96 h-96 max-w-full max-h-full flex justify-center items-center">
+          <div className="relative text-gray-900 mt-5 text-sm rounded-lg border border-slate-800 w-80 h-80 max-w-full max-h-full flex justify-center items-center">
             {form.photo ? (
               <img
                 src={form.photo}

@@ -22,4 +22,16 @@
 .prompt::-webkit-scrollbar-thumb {
     background-color: #666e75;
     border-radius: 5px;
+    
 }
+
+input::file-selector-button {
+    background-color: #1e293b;
+    font-family: 'DM Sans Medium';
+    color: white;
+    padding: 0.5rem 1rem;
+   
+  }
+
+
+  
