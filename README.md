@@ -26,11 +26,13 @@ client/
 # Usage (run fullstack app on your machine)
 
 ## Prerequisites
-- [MongoDB](https://www.mongodb.com/) (https://mongoosejs.com/docs/guide.html)
+- [MongoDB](https://www.mongodb.com/) 
+- [Mongoose guide] (https://mongoosejs.com/docs/guide.html)
 - [Node](https://nodejs.org/en/download/) ^18.14.2
 - [npm](https://nodejs.org/en/download/package-manager/)
 - [Cloudinary] (https://cloudinary.com/developers)
-- [OpenAI] (https://platform.openai.com/overview) (https://platform.openai.com/docs/api-reference/images/create)
+- [OpenAI] (https://platform.openai.com/overview)
+- [OpenAICreateImage] (https://platform.openai.com/docs/api-reference/images/create)
 
 notice, you need client and server runs concurrently in different terminal session, in order to make them talk to each other
 
@@ -43,7 +45,7 @@ $ npm run dev        // run it locally
 ```
 
 
-### Start
+## Server-side usage(PORT: 8080)
 
 ```terminal
 $ cd server   // go to server folder
@@ -60,14 +62,14 @@ $ npm start // run it locally
 
 ## Deploy Server to [Render](https://render.com/)
 - upload project folder to github
-- login to render with github account, create new web service and select your github repo
-- root directory is server
+- login to render with your github account, create new web service and select your github repo
+- select root directory to server
 - add env variables, make sure to add "NODE_VERSION" variable
 
 ## Deploy Client to [Netlify](https://www.netlify.com/)
-- in Home, CreatePost and EditImage pages, replace fetch urls with your created render urls
+- in client/src/pages Home, CreatePost and EditImage, replace fetch urls with your created server urls from render
 - login to netlify with github, add new site, improt existing project
-- base directory is client
+- select base directory to client
 - deploy site
 
 
