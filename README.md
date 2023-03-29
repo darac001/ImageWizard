@@ -58,7 +58,7 @@ $ npm start // run it locally
 (CLOUDINARY_CLOUD_NAME="")
 (CLOUDINARY_API_KEY="")
 (CLOUDINARY_API_SECRET="")
-(NODE_VERSION = “18.14.2”)
+(NODE_VERSION = “”)
 
 ## Deploy Server to [Render](https://render.com/)
 - upload project folder to github
