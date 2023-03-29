@@ -30,6 +30,7 @@ client/
 - [Node](https://nodejs.org/en/download/) ^18.14.2
 - [npm](https://nodejs.org/en/download/package-manager/)
 - [Cloudinary] (https://cloudinary.com/developers)
+- [OpenAI] (https://platform.openai.com/overview) (https://platform.openai.com/docs/api-reference/images/create)
 
 notice, you need client and server runs concurrently in different terminal session, in order to make them talk to each other
 
@@ -49,6 +50,13 @@ $ cd server   // go to server folder
 $ npm install       // npm install packages
 $ npm start // run it locally
 ```
+- you need to add your own env variables
+(OPENAI_API_KEY="")
+(MONGODB_URL="")
+(CLOUDINARY_CLOUD_NAME="")
+(CLOUDINARY_API_KEY="")
+(CLOUDINARY_API_SECRET="")
+(NODE_VERSION = “18.14.2”)
 
 ## Deploy Server to [Render](https://render.com/)
 - upload project folder to github
